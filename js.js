@@ -10,14 +10,18 @@ clear.classList.add("btn");
 clear.textContent = "Clear the Grid";
 body.appendChild(clear);
 
-clear.addEventListener("click", clearGrid());
-
-
 const gridSpace = document.querySelector("#gridSpace");
 
 let gridSize = 4;
 let gridRow = [];
 let gridPoint = [];
+
+
+clear.addEventListener("click", clearGrid(gridSize));
+
+
+
+
 
 drawGrid(gridSize)
 
@@ -64,20 +68,20 @@ function colorChanger(point) {
   })
 }
 
-// function clearGrid() {
-//   let allPoints = document.querySelectorAll("grid");
-//   allPoints.forEach((grid) => {
-//   gridSpace.removeChild(child);
-//   });
-// }
-
-function clearGrid(gridSize) {
-  for (let i = gridSize; i > 0; i--) {
-
-    for (let g = gridSize; g > 0; g--) {
-      gridRow[i].removeChild(gridPoint[g]);
-    }
-
-    gridSpace.removeChild(gridRow[i]);
-  }
+function clearGrid() {
+  let allPoints = document.querySelectorAll("grid");
+  allPoints.forEach((grid) => {
+  gridSpace.removeChild(child);
+  });
 }
+
+// function clearGrid(gridSize) {
+//   for (let i = gridSize; i > 0; i--) {
+
+//     for (let g = gridSize; g > 0; g--) {
+//       gridRow[i].removeChild(child);
+//     }
+
+//     gridSpace.removeChild(gridRow[i]);
+//   }
+// }
