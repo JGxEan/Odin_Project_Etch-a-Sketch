@@ -1,0 +1,14 @@
+/* Style Sheet for Etch-a-Sketch program */
+
+body {
+  background-color: aqua;
+  padding: 20px;
+}
+
+
+#gridSpace {
+  background-color: white;
+  width: 960px;
+  height: auto;
+  display: flex;
+}
