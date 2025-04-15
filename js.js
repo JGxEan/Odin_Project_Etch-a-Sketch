@@ -12,16 +12,14 @@ body.appendChild(clear);
 
 const gridSpace = document.querySelector("#gridSpace");
 
-let gridSize = 4;
+let gridSize = 16;
 let gridRow = [];
 let gridPoint = [];
 
 
-clear.addEventListener("click", clearGrid(gridSize));
-
-
-
-
+clear.addEventListener("click", () => {
+  drawGrid(16);
+});
 
 drawGrid(gridSize)
 
@@ -30,7 +28,7 @@ gridEntry.addEventListener("click", () => {
 
   let x = 0;
   while (x == 0) {
-    if (typeof(gridSizeTemp) == "number" && gridSizeTemp >= 2 && gridSizeTemp <= 100) {
+    if (typeof(gridSizeTemp) == "number" && gridSizeTemp >= 2 && gridSizeTemp <= 100 && gridSizeTemp != null) {
       x++;
     } else {
       gridSizeTemp = parseInt(prompt("That's not a valid size. Please enter a size between '2' and '100'."))
@@ -68,20 +66,9 @@ function colorChanger(point) {
   })
 }
 
-function clearGrid() {
-  let allPoints = document.querySelectorAll("grid");
-  allPoints.forEach((grid) => {
-  gridSpace.removeChild(child);
+function clearGrid(reset) {
+  gridRow.forEach((grid) => {
+    grid.remove();
   });
 }
 
-// function clearGrid(gridSize) {
-//   for (let i = gridSize; i > 0; i--) {
-
-//     for (let g = gridSize; g > 0; g--) {
-//       gridRow[i].removeChild(child);
-//     }
-
-//     gridSpace.removeChild(gridRow[i]);
-//   }
-// }
