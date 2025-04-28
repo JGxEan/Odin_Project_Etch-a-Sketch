@@ -30,21 +30,25 @@ clear.addEventListener("click", () => {
 drawGrid(gridSize)
 
 gridEntry.addEventListener("click", () => {
-  let gridSizeTemp = parseInt(prompt("That's not a valid size. Please enter a size between '2' and '100'."))
+  let c = prompt("That's not a valid size. Please enter a size between '2' and '100'.")
+  let gridSizeTemp = parseInt(c);
 
   let x = 0;
   while (x == 0) {
     if (typeof(gridSizeTemp) == "number" && gridSizeTemp >= 2 && gridSizeTemp <= 100 && gridSizeTemp != null) {
+      x++;
+    } else if (c === null) {
       x++;
     } else {
       gridSizeTemp = parseInt(prompt("That's not a valid size. Please enter a size between '2' and '100'."))
     }
   }
 
-  gridSize = gridSizeTemp;
-
-  drawGrid(gridSize);
-
+  if (gridSizeTemp) {
+    gridSize = gridSizeTemp;
+    
+    drawGrid(gridSize);
+  }
 })
 
 
